@@ -10,15 +10,15 @@ export interface Drink {
   lastUpdate: Date | null;
 }
 
-interface Instructions {
+export interface Instructions {
   en: string;
   es?: string;
   de?: string;
   fr?: string;
-  if?: string;
+  it?: string;
 }
 
-interface Ingredient {
+export interface Ingredient {
   name: string;
   measure: string;
 }
