@@ -2,7 +2,7 @@
   "id": 0,
   "name": "",
   "thumbnail": "",
-  "alcoholic": false,
+  "alcoholic": null,
   "glass": "",
   "tags": [],
   "instructions": {

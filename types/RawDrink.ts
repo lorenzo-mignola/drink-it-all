@@ -6,7 +6,7 @@ export interface RawDrink {
   strVideo?: string | null;
   strCategory: string | null;
   strIBA?: string | null;
-  strAlcoholic: string | null;
+  strAlcoholic: 'Alcoholic' | 'Non alcoholic' | null;
   strGlass: string | null;
   strInstructions: string;
   strInstructionsES?: string | null;
