@@ -1,7 +1,8 @@
 import {
   assert,
   assertEquals,
-  assertFalse
+  assertFalse,
+  assertArrayIncludes
 } from 'https://deno.land/std@0.146.0/testing/asserts.ts';
 import parseDrink from '../utils/parseDrink.ts';
 import { RawDrink } from './../types/RawDrink.ts';
@@ -31,4 +32,25 @@ Deno.test('should parse alcoholic', () => {
 Deno.test('should parse glass', () => {
   const parsed = parseDrink(margarita as RawDrink);
   assertEquals(parsed.glass, margarita.strGlass);
+});
+
+Deno.test('should parse tags', () => {
+  const parsed = parseDrink(margarita as RawDrink);
+  const { tags } = parsed;
+  assert(tags.length > 0);
+  assertArrayIncludes(tags, ['IBA']);
+});
+
+Deno.test('should parse ingredients', () => {
+  const parsed = parseDrink(margarita as RawDrink);
+  const { ingredients } = parsed;
+  assert(ingredients.length > 0);
+  assertArrayIncludes(ingredients, [{ name: 'Tequila', measure: '1 1/2 oz' }]);
+});
+
+Deno.test('should parse ingredients and not include null', () => {
+  const parsed = parseDrink(margarita as RawDrink);
+  const { ingredients } = parsed;
+  const nullIngredients = ingredients.filter(({ name }) => name === null);
+  assertEquals(nullIngredients.length, 0);
 });

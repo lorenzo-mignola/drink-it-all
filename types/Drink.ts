@@ -18,7 +18,7 @@ interface Instructions {
   if?: string;
 }
 
-interface Ingredient {
+export interface Ingredient {
   name: string;
   measure: string;
 }
