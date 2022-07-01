@@ -69,3 +69,8 @@ Deno.test('should parse instructions', () => {
   assertEquals(it, margarita.strInstructionsIT);
   assertEquals(es, undefined);
 });
+
+Deno.test('should generate link', () => {
+  const parsed = parseDrink(margarita as RawDrink);
+  assertEquals(parsed.link, '/api/cocktail/11007');
+});

@@ -16,7 +16,8 @@ const parseDrink = (raw: RawDrink): Drink => {
     tags: parseTags(raw),
     instructions: parseInstructions(raw),
     ingredients: parseIngredients(raw),
-    lastUpdate: parseLastUpdate(raw)
+    lastUpdate: parseLastUpdate(raw),
+    link: `/api/cocktail/${raw.idDrink}`
   };
 };
 

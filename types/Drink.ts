@@ -8,6 +8,7 @@ export interface Drink {
   instructions: Instructions;
   ingredients: Ingredient[];
   lastUpdate: Date | null;
+  link: string;
 }
 
 export interface Instructions {

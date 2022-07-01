@@ -1,3 +1,4 @@
+import { RawDrink } from './RawDrink.ts';
 export interface CocktailResponse {
-  drinks: { [key: string]: null | string }[];
+  drinks: RawDrink[];
 }
