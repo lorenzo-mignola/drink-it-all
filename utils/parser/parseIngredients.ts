@@ -1,24 +1,5 @@
-import { Ingredient } from './../types/Drink.ts';
-import empty from '../test/mock/emptyDrink.json' assert { type: 'json' };
-import { Drink } from '../types/Drink.ts';
-import { RawDrink } from '../types/RawDrink.ts';
-
-const parseAlcoholic = ({ strAlcoholic: rawValue }: RawDrink) => {
-  if (rawValue === 'Alcoholic') {
-    return true;
-  }
-  if (rawValue === 'Non alcoholic') {
-    return true;
-  }
-  return null;
-};
-
-const parseTags = ({ strTags: rawValue }: RawDrink) => {
-  if (!rawValue) {
-    return [];
-  }
-  return rawValue.split(',');
-};
+import { Ingredient } from './../../types/Drink.ts';
+import { RawDrink } from './../../types/RawDrink.ts';
 
 const isIngredient = (key: string) => key.includes('strIngredient');
 const isMeasure = (key: string) => key.includes('strMeasure');
@@ -59,18 +40,4 @@ const parseIngredients = (raw: RawDrink) => {
   return ingredients.filter(isIngredientNotNull);
 };
 
-const parseDrink = (raw: RawDrink): Drink => {
-  return {
-    id: Number(raw.idDrink),
-    name: raw.strDrink,
-    thumbnail: raw.strDrinkThumb,
-    alcoholic: parseAlcoholic(raw),
-    glass: raw.strGlass,
-    tags: parseTags(raw),
-    instructions: empty['instructions'],
-    ingredients: parseIngredients(raw),
-    lastUpdate: empty['lastUpdate']
-  };
-};
-
-export default parseDrink;
+export default parseIngredients;

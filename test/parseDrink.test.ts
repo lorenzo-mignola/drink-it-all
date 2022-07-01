@@ -4,7 +4,7 @@ import {
   assertFalse,
   assertArrayIncludes
 } from 'https://deno.land/std@0.146.0/testing/asserts.ts';
-import parseDrink from '../utils/parseDrink.ts';
+import parseDrink from '../utils/parser/parseDrink.ts';
 import { RawDrink } from './../types/RawDrink.ts';
 import margarita from './mock/margarita.json' assert { type: 'json' };
 
@@ -53,4 +53,19 @@ Deno.test('should parse ingredients and not include null', () => {
   const { ingredients } = parsed;
   const nullIngredients = ingredients.filter(({ name }) => name === null);
   assertEquals(nullIngredients.length, 0);
+});
+
+Deno.test('should parse lastUpdate', () => {
+  const parsed = parseDrink(margarita as RawDrink);
+  assertEquals(parsed.lastUpdate, new Date(margarita.dateModified));
+});
+
+Deno.test('should parse instructions', () => {
+  const parsed = parseDrink(margarita as RawDrink);
+  const {
+    instructions: { en, it, es }
+  } = parsed;
+  assertEquals(en, margarita.strInstructions);
+  assertEquals(it, margarita.strInstructionsIT);
+  assertEquals(es, undefined);
 });
