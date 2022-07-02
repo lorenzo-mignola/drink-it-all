@@ -1,19 +1,20 @@
+import { CocktailService } from './../../../services/CocktailService.ts';
 import { HandlerContext, Handlers } from '$fresh/server.ts';
-import parseDrink from '../../../utils/parser/parseDrink.ts';
-import { CocktailResponse } from './../../../types/CocktailResponse.ts';
+
+const returnDefault = () => new Response(JSON.stringify({}));
 
 export const handler: Handlers = {
-  async GET(req: Request, ctx: HandlerContext) {
+  async GET(_: Request, ctx: HandlerContext) {
     const { id } = ctx.params;
-    const drinkResponse = await fetch(
-      `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
-    );
-    const rawDrinks: CocktailResponse = await drinkResponse.json();
-    const { drinks } = rawDrinks;
-    if (!drinks) {
-      return new Response(JSON.stringify({}));
+    if (!id || Number.isNaN(Number(id))) {
+      return returnDefault();
     }
-    const [drink] = drinks.map(parseDrink);
+
+    const drink = await CocktailService.getCocktailById(Number(id));
+    if (!drink) {
+      return returnDefault();
+    }
+
     return new Response(JSON.stringify(drink));
   }
 };
