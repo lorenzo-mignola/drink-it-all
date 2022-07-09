@@ -12,12 +12,12 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <Fragment>
-      <div className={tw`bg-primary-dark p-4`}>
+      <nav className={tw`bg-primary-dark p-5`}>
         <h1 className={tw`text(3xl) border(b-2 accent) inline ${customStyle}`}>
           Header
         </h1>
-      </div>
-      {children}
+      </nav>
+      <div className={tw`p-3`}>{children}</div>
     </Fragment>
   );
 }

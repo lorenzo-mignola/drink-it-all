@@ -4,6 +4,7 @@ import { Handlers, PageProps } from '$fresh/server.ts';
 import { Drink } from '../../types/Drink.ts';
 import { CocktailService } from '../../services/CocktailService.ts';
 import Layout from '../../components/Layout.tsx';
+import Cocktail from '../../components/Cocktail/Cocktail.tsx';
 
 export const handler: Handlers<Drink | null> = {
   async GET(_, ctx) {
@@ -23,12 +24,12 @@ export const handler: Handlers<Drink | null> = {
 
 export default function DrinkId({ data }: PageProps<Drink | null>) {
   if (!data) {
-    return <h1>User not found</h1>;
+    return <h1>No cocktail found</h1>;
   }
 
   return (
     <Layout>
-      <h1>{data.name}</h1>
+      <Cocktail drink={data} />
     </Layout>
   );
 }
