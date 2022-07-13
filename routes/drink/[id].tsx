@@ -30,7 +30,7 @@ export default function DrinkId({ data }: PageProps<Drink | null>) {
 
   return (
     <Layout>
-      <div className={tw`flex justify-center mt-10`}>
+      <div className={tw`flex justify-center mt-10 p-3`}>
         <Cocktail drink={data} />
       </div>
     </Layout>

@@ -19,7 +19,7 @@ export default function Layout({ children }: LayoutProps) {
           DrinkItAll
         </h1>
       </nav>
-      <main className={tw`p-3`}>{children}</main>
+      <main>{children}</main>
     </Fragment>
   );
 }
