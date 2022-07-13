@@ -8,16 +8,18 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const customStyle = tw(css({ color: 'white', fontWeight: 'bold' }));
+  const customStyle = tw(css({ fontWeight: 'bold' }));
 
   return (
     <Fragment>
-      <nav className={tw`bg-primary-dark p-5`}>
-        <h1 className={tw`text(3xl) border(b-2 accent) inline ${customStyle}`}>
-          Header
+      <nav className={tw`bg-primary-dark p-5 sticky top-0 shadow-sm`}>
+        <h1
+          className={tw`text(3xl white bold) border(b-2 accent) inline ${customStyle}`}
+        >
+          DrinkItAll
         </h1>
       </nav>
-      <div className={tw`p-3`}>{children}</div>
+      <main className={tw`p-3`}>{children}</main>
     </Fragment>
   );
 }

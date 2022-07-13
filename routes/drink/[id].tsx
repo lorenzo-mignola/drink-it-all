@@ -5,6 +5,7 @@ import { Drink } from '../../types/Drink.ts';
 import { CocktailService } from '../../services/CocktailService.ts';
 import Layout from '../../components/Layout.tsx';
 import Cocktail from '../../components/Cocktail/Cocktail.tsx';
+import { tw } from '@twind';
 
 export const handler: Handlers<Drink | null> = {
   async GET(_, ctx) {
@@ -29,7 +30,9 @@ export default function DrinkId({ data }: PageProps<Drink | null>) {
 
   return (
     <Layout>
-      <Cocktail drink={data} />
+      <div className={tw`flex justify-center mt-10`}>
+        <Cocktail drink={data} />
+      </div>
     </Layout>
   );
 }
