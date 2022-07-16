@@ -5,7 +5,7 @@ const parseAlcoholic = ({ strAlcoholic: rawValue }: RawDrink) => {
     return true;
   }
   if (rawValue === 'Non alcoholic') {
-    return true;
+    return false;
   }
   return null;
 };

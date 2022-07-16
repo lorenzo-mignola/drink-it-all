@@ -8,16 +8,16 @@ interface CocktailIngredientsProps {
 
 const CocktailIngredients = ({ ingredients }: CocktailIngredientsProps) => {
   return (
-    <span>
+    <ul>
       {ingredients.map(ingredient => (
-        <p>
-          {ingredient.name}{' '}
+        <li>
+          &#127865; {ingredient.name}{' '}
           <small>
             <i>{ingredient.measure || ''}</i>
           </small>
-        </p>
+        </li>
       ))}
-    </span>
+    </ul>
   );
 };
 
