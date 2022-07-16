@@ -13,7 +13,9 @@ interface CocktailProps {
 
 const Cocktail = ({ drink }: CocktailProps) => {
   return (
-    <div className={tw`md:w-1/2 bg-gray-100 rounded-md p-8 shadow-md`}>
+    <div
+      className={tw`md:w-5/12 bg-gray-100 rounded-md p-8 shadow-md flex-auto flex-grow`}
+    >
       <CocktailName name={drink.name} />
       <CocktailImage thumbnail={drink.thumbnail} />
       <CocktailDetail label='Glass' value={drink.glass || ''} />
