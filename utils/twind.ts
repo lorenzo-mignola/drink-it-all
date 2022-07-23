@@ -4,7 +4,7 @@ export * from "twind";
 import * as colors from "twind/colors";
 
 const colorsFix = Object.keys(colors).reduce((allColors, colorKey) => {
-  //@ts-ignore
+  // @ts-ignore: missing type color
   const val = colors[colorKey];
   if (typeof val === "string") {
     return {

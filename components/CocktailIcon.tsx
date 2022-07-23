@@ -1,6 +1,7 @@
 /** @jsx h */
 import { h } from "preact";
 
+// deno-lint-ignore no-explicit-any
 export default function CocktailIcon(props: any) {
   return (
     <svg

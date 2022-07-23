@@ -34,7 +34,7 @@ export default function SearchInput() {
         type="text"
         class={tw`b-0 p-5 rounded-lg w-11/12 md:w-7/12 opacity-90 focus-visible:outline-none text-xl`}
         placeholder="Search drink"
-        // @ts-ignore
+        // @ts-ignore: debounced function
         onInput={handleChange}
         onBlur={() => setSearchResult([])}
         value={value}
