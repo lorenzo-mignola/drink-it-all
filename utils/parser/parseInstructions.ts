@@ -1,5 +1,5 @@
-import { Instructions } from './../../types/Drink.ts';
-import { RawDrink } from './../../types/RawDrink.ts';
+import { Instructions } from "./../../types/Drink.ts";
+import { RawDrink } from "./../../types/RawDrink.ts";
 
 const parseLastUpdate = (raw: RawDrink): Instructions => {
   const {
@@ -7,7 +7,7 @@ const parseLastUpdate = (raw: RawDrink): Instructions => {
     strInstructionsIT,
     strInstructionsES,
     strInstructionsDE,
-    strInstructionsFR
+    strInstructionsFR,
   } = raw;
   return JSON.parse(
     JSON.stringify({
@@ -15,8 +15,8 @@ const parseLastUpdate = (raw: RawDrink): Instructions => {
       it: strInstructionsIT || undefined,
       es: strInstructionsES || undefined,
       de: strInstructionsDE || undefined,
-      fr: strInstructionsFR || undefined
-    })
+      fr: strInstructionsFR || undefined,
+    }),
   );
 };
 

@@ -6,15 +6,15 @@ export interface RawDrink {
   strVideo?: string | null;
   strCategory: string | null;
   strIBA?: string | null;
-  strAlcoholic: 'Alcoholic' | 'Non alcoholic' | null;
+  strAlcoholic: "Alcoholic" | "Non alcoholic" | null;
   strGlass: string | null;
   strInstructions: string;
   strInstructionsES?: string | null;
   strInstructionsDE?: string | null;
   strInstructionsFR?: string | null;
   strInstructionsIT?: string | null;
-  'strInstructionsZH-HANS'?: string | null;
-  'strInstructionsZH-HANT'?: string | null;
+  "strInstructionsZH-HANS"?: string | null;
+  "strInstructionsZH-HANT"?: string | null;
   strDrinkThumb: string;
   strIngredient1?: string | null;
   strIngredient2?: string | null;

@@ -1,10 +1,10 @@
-import { RawDrink } from './../../types/RawDrink.ts';
+import { RawDrink } from "./../../types/RawDrink.ts";
 
 const parseTags = ({ strTags: rawValue }: RawDrink) => {
   if (!rawValue) {
     return [];
   }
-  return rawValue.split(',');
+  return rawValue.split(",");
 };
 
 export default parseTags;

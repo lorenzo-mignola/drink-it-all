@@ -1,10 +1,10 @@
 /** @jsx h */
-import { h } from 'preact';
-import { Drink } from '../../types/Drink.ts';
-import { tw } from '@twind';
+import { h } from "preact";
+import { Drink } from "../../types/Drink.ts";
+import { tw } from "@twind";
 
 interface CocktailNameProps {
-  name: Drink['name'];
+  name: Drink["name"];
 }
 
 const CocktailName = ({ name }: CocktailNameProps) => {

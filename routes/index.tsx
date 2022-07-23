@@ -1,14 +1,14 @@
 /** @jsx h */
-import { tw } from '@twind';
-import { Handlers, PageProps } from 'https://deno.land/x/fresh@1.0.0/server.ts';
-import { h } from 'preact';
-import { css } from 'twind/css';
-import Cocktail from '../components/Cocktail/Cocktail.tsx';
-import Layout from '../components/Layout.tsx';
-import ScrollDown from '../components/ScrollDown.tsx';
-import SearchInput from '../islands/SearchInput.tsx';
-import { CocktailService } from '../services/CocktailService.ts';
-import { Drink } from '../types/Drink.ts';
+import { tw } from "@twind";
+import { Handlers, PageProps } from "https://deno.land/x/fresh@1.0.0/server.ts";
+import { h } from "preact";
+import { css } from "twind/css";
+import Cocktail from "../components/Cocktail/Cocktail.tsx";
+import Layout from "../components/Layout.tsx";
+import ScrollDown from "../components/ScrollDown.tsx";
+import SearchInput from "../islands/SearchInput.tsx";
+import { CocktailService } from "../services/CocktailService.ts";
+import { Drink } from "../types/Drink.ts";
 
 export const handler: Handlers<Drink[]> = {
   async GET(_, ctx) {
@@ -18,16 +18,16 @@ export const handler: Handlers<Drink[]> = {
 
     // return ctx.render([]);
     return ctx.render(suggestedDrink as Drink[]);
-  }
+  },
 };
 
 export default function Home({ data }: PageProps<Drink[]>) {
   const customStyle = tw(
     css({
       background: `url('/bg.jpg') no-repeat center center fixed`,
-      backgroundSize: 'cover',
-      height: 'calc(100vh - 230px)'
-    })
+      backgroundSize: "cover",
+      height: "calc(100vh - 230px)",
+    }),
   );
 
   return (
@@ -44,9 +44,7 @@ export default function Home({ data }: PageProps<Drink[]>) {
         Some suggestion
       </h1>
       <div class={tw`flex p-10 gap-5 justify-center flex-wrap h-screen`}>
-        {data.map(drink => (
-          <Cocktail drink={drink} />
-        ))}
+        {data.map((drink) => <Cocktail drink={drink} />)}
       </div>
     </Layout>
   );

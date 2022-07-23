@@ -1,11 +1,11 @@
 /** @jsx h */
-import { h } from 'preact';
-import { Drink } from '../../types/Drink.ts';
-import { tw } from '@twind';
-import CocktailImage from './CocktailImage.tsx';
-import CocktailDetail from './CocktailDetail.tsx';
-import CocktailIngredients from './CocktailIngredients.tsx';
-import CocktailName from './CocktailName.tsx';
+import { h } from "preact";
+import { Drink } from "../../types/Drink.ts";
+import { tw } from "@twind";
+import CocktailImage from "./CocktailImage.tsx";
+import CocktailDetail from "./CocktailDetail.tsx";
+import CocktailIngredients from "./CocktailIngredients.tsx";
+import CocktailName from "./CocktailName.tsx";
 
 interface CocktailProps {
   drink: Drink;
@@ -18,16 +18,16 @@ const Cocktail = ({ drink }: CocktailProps) => {
     >
       <CocktailName name={drink.name} />
       <CocktailImage thumbnail={drink.thumbnail} />
-      <CocktailDetail label='Glass' value={drink.glass || ''} />
+      <CocktailDetail label="Glass" value={drink.glass || ""} />
       <CocktailDetail
-        label='Alcoholic'
-        value={drink.alcoholic ? 'Yes' : 'No'}
+        label="Alcoholic"
+        value={drink.alcoholic ? "Yes" : "No"}
       />
       <CocktailDetail
-        label='Ingredients'
+        label="Ingredients"
         value={<CocktailIngredients ingredients={drink.ingredients} />}
       />
-      <CocktailDetail label='Instructions' value={drink.instructions.en} />
+      <CocktailDetail label="Instructions" value={drink.instructions.en} />
     </div>
   );
 };

@@ -1,5 +1,5 @@
-import { CocktailService } from './../../../services/CocktailService.ts';
-import { HandlerContext, Handlers } from '$fresh/server.ts';
+import { CocktailService } from "./../../../services/CocktailService.ts";
+import { HandlerContext, Handlers } from "$fresh/server.ts";
 
 const returnDefault = () => new Response(JSON.stringify({}));
 
@@ -16,5 +16,5 @@ export const handler: Handlers = {
     }
 
     return new Response(JSON.stringify(drink));
-  }
+  },
 };

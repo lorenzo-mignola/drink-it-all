@@ -1,11 +1,11 @@
 /** @jsx h */
-import { h } from 'preact';
-import { Handlers, PageProps } from '$fresh/server.ts';
-import { Drink } from '../../types/Drink.ts';
-import { CocktailService } from '../../services/CocktailService.ts';
-import Layout from '../../components/Layout.tsx';
-import Cocktail from '../../components/Cocktail/Cocktail.tsx';
-import { tw } from '@twind';
+import { h } from "preact";
+import { Handlers, PageProps } from "$fresh/server.ts";
+import { Drink } from "../../types/Drink.ts";
+import { CocktailService } from "../../services/CocktailService.ts";
+import Layout from "../../components/Layout.tsx";
+import Cocktail from "../../components/Cocktail/Cocktail.tsx";
+import { tw } from "@twind";
 
 export const handler: Handlers<Drink | null> = {
   async GET(_, ctx) {
@@ -20,7 +20,7 @@ export const handler: Handlers<Drink | null> = {
     }
 
     return ctx.render(drink);
-  }
+  },
 };
 
 export default function DrinkId({ data }: PageProps<Drink | null>) {

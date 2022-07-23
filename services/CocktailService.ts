@@ -1,10 +1,10 @@
-import parseDrink from '../utils/parser/parseDrink.ts';
-import { CocktailResponse } from './../types/CocktailResponse.ts';
+import parseDrink from "../utils/parser/parseDrink.ts";
+import { CocktailResponse } from "./../types/CocktailResponse.ts";
 
 export class CocktailService {
   static async getCocktailById(id: number) {
     const drinkResponse = await fetch(
-      `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
+      `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`,
     );
     const rawDrinks: CocktailResponse = await drinkResponse.json();
     const { drinks } = rawDrinks;
@@ -17,7 +17,7 @@ export class CocktailService {
 
   static getRandomCocktail = async () => {
     const drinkResponse = await fetch(
-      'http://www.thecocktaildb.com/api/json/v1/1/random.php'
+      "http://www.thecocktaildb.com/api/json/v1/1/random.php",
     );
     const rawDrinks: CocktailResponse = await drinkResponse.json();
     return rawDrinks.drinks?.map(parseDrink)[0] || null;
@@ -29,7 +29,7 @@ export class CocktailService {
     }
 
     const drinkResponse = await fetch(
-      `http://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`
+      `http://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`,
     );
     const rawDrinks: CocktailResponse = await drinkResponse.json();
     return rawDrinks.drinks?.map(parseDrink) || [];

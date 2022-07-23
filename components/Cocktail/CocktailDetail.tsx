@@ -1,6 +1,6 @@
 /** @jsx h */
-import { h, ComponentChildren } from 'preact';
-import { tw } from '@twind';
+import { ComponentChildren, h } from "preact";
+import { tw } from "@twind";
 
 interface CocktailDetailProps {
   label: string;

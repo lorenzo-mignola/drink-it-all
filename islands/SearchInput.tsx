@@ -1,14 +1,14 @@
 /** @jsx h */
-import { h, Fragment } from 'preact';
-import { tw } from '@twind';
-import { debounce } from 'lodash';
-import { useState, useEffect, StateUpdater } from 'preact/hooks';
-import { Drink } from '../types/Drink.ts';
-import { CocktailService } from '../services/CocktailService.ts';
+import { Fragment, h } from "preact";
+import { tw } from "@twind";
+import { debounce } from "lodash";
+import { StateUpdater, useEffect, useState } from "preact/hooks";
+import { Drink } from "../types/Drink.ts";
+import { CocktailService } from "../services/CocktailService.ts";
 
 const loadSearchResult = async (
   searchValue: string,
-  setResult: StateUpdater<Drink[]>
+  setResult: StateUpdater<Drink[]>,
 ) => {
   const searchFetch = await fetch(`/api/search?query=${searchValue}`);
   const searchResult = await searchFetch.json();
@@ -18,7 +18,7 @@ const loadSearchResult = async (
 const debouncedLoadSearch = debounce(loadSearchResult, 300);
 
 export default function SearchInput() {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
   const [searchResult, setSearchResult] = useState<Drink[]>([]);
 
   const handleChange = ({ target }: { target: HTMLInputElement }) => {
@@ -31,26 +31,27 @@ export default function SearchInput() {
   return (
     <Fragment>
       <input
-        type='text'
+        type="text"
         class={tw`b-0 p-5 rounded-lg w-11/12 md:w-7/12 opacity-90 focus-visible:outline-none text-xl`}
-        placeholder='Search drink'
+        placeholder="Search drink"
         // @ts-ignore
         onInput={handleChange}
         onBlur={() => setSearchResult([])}
         value={value}
         autofocus
-        list=''
+        list=""
       />
       <ul
         class={tw`w-11/12 md:w-7/12 absolute block bg-white rounded-lg max-h-52 md:max-h-60 overflow-y-auto top-16 mt-2`}
       >
-        {searchResult.map(drink => (
+        {searchResult.map((drink) => (
           <li class={tw`p-4 text-xl hover:cursor-pointer hover:bg-gray-100`}>
             {drink.name}
           </li>
         ))}
       </ul>
-      {/* <datalist
+      {
+        /* <datalist
         id='searchResult'
         class={tw`w-11/12 md:w-7/12 absolute block bg-white rounded-lg max-h-1`}
         style={{
@@ -65,7 +66,8 @@ export default function SearchInput() {
             {v}
           </option>
         ))}
-      </datalist> */}
+      </datalist> */
+      }
     </Fragment>
   );
 }

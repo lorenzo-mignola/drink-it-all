@@ -1,4 +1,4 @@
-import { RawDrink } from './../../types/RawDrink.ts';
+import { RawDrink } from "./../../types/RawDrink.ts";
 
 const parseLastUpdate = ({ dateModified: rawValue }: RawDrink) => {
   if (!rawValue) {
