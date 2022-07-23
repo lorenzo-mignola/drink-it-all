@@ -24,7 +24,7 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <Fragment>
-      <nav className={tw`bg-primary-dark p-5 sticky top-0 shadow-sm z-10`}>
+      <nav class={tw`bg-primary-dark p-5 sticky top-0 shadow-sm z-10`}>
         <a href='/'>
           <h1
             className={tw`text(3xl white hover:bold) border(b-2 accent) inline ${customStyle}`}

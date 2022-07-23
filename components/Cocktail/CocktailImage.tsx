@@ -9,8 +9,8 @@ interface CocktailImage {
 
 const CocktailImage = ({ thumbnail }: CocktailImage) => {
   return (
-    <div className={tw`w-8/12 mr-auto ml-auto my-5`}>
-      <img src={thumbnail} alt='thumbnail' className={tw`rounded-full`} />
+    <div class={tw`w-8/12 mr-auto ml-auto my-5`}>
+      <img src={thumbnail} alt='thumbnail' class={tw`rounded-full`} />
     </div>
   );
 };

@@ -4,8 +4,9 @@
 
 import * as $0 from "./routes/api/cocktail/[id].ts";
 import * as $1 from "./routes/api/random-cocktails.ts";
-import * as $2 from "./routes/drink/[id].tsx";
-import * as $3 from "./routes/index.tsx";
+import * as $2 from "./routes/api/search.ts";
+import * as $3 from "./routes/drink/[id].tsx";
+import * as $4 from "./routes/index.tsx";
 import * as $$0 from "./islands/Counter.tsx";
 import * as $$1 from "./islands/SearchInput.tsx";
 
@@ -13,8 +14,9 @@ const manifest = {
   routes: {
     "./routes/api/cocktail/[id].ts": $0,
     "./routes/api/random-cocktails.ts": $1,
-    "./routes/drink/[id].tsx": $2,
-    "./routes/index.tsx": $3,
+    "./routes/api/search.ts": $2,
+    "./routes/drink/[id].tsx": $3,
+    "./routes/index.tsx": $4,
   },
   islands: {
     "./islands/Counter.tsx": $$0,

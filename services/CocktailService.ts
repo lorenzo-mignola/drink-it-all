@@ -20,6 +20,18 @@ export class CocktailService {
       'http://www.thecocktaildb.com/api/json/v1/1/random.php'
     );
     const rawDrinks: CocktailResponse = await drinkResponse.json();
-    return rawDrinks.drinks.map(parseDrink)[0];
+    return rawDrinks.drinks?.map(parseDrink)[0] || null;
+  };
+
+  static searchCocktail = async (search?: string | null) => {
+    if (!search) {
+      return [];
+    }
+
+    const drinkResponse = await fetch(
+      `http://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`
+    );
+    const rawDrinks: CocktailResponse = await drinkResponse.json();
+    return rawDrinks.drinks?.map(parseDrink) || [];
   };
 }

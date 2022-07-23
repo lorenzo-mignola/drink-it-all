@@ -9,8 +9,8 @@ interface CocktailDetailProps {
 
 const CocktailDetail = ({ label, value }: CocktailDetailProps) => {
   return (
-    <div className={tw`md:text-lg my-6`}>
-      <p className={tw`text-md md:text-xl`}>
+    <div class={tw`md:text-lg my-6`}>
+      <p class={tw`text-md md:text-xl`}>
         <b>{label}</b>
       </p>
       <p>{value}</p>

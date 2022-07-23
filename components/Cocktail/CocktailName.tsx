@@ -9,7 +9,7 @@ interface CocktailNameProps {
 
 const CocktailName = ({ name }: CocktailNameProps) => {
   return (
-    <h1 className={tw`text-2xl`}>
+    <h1 class={tw`text-2xl`}>
       <b>{name}</b>
     </h1>
   );
