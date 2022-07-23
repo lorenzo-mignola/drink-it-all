@@ -50,13 +50,13 @@ export default function SearchInput() {
         class={tw`w-11/12 md:w-7/12 absolute block bg-white rounded-lg max-h-52 md:max-h-60 overflow-y-auto top-16 mt-2`}
       >
         {searchResult.map((drink) => (
-          <li
-            class={tw`p-4 text-xl hover:cursor-pointer hover:bg-gray-100`}
-          >
-            <a href={`/drink/${drink.id}`}>
+          <a href={`/drink/${drink.id}`}>
+            <li
+              class={tw`p-4 text-xl hover:cursor-pointer hover:bg-gray-100`}
+            >
               {drink.name}
-            </a>
-          </li>
+            </li>
+          </a>
         ))}
       </ul>
     </Fragment>
