@@ -4,7 +4,6 @@ import { tw } from "@twind";
 import { debounce } from "lodash";
 import { StateUpdater, useEffect, useState } from "preact/hooks";
 import { Drink } from "../types/Drink.ts";
-import { CocktailService } from "../services/CocktailService.ts";
 
 const loadSearchResult = async (
   searchValue: string,
@@ -17,6 +16,9 @@ const loadSearchResult = async (
 
 const debouncedLoadSearch = debounce(loadSearchResult, 300);
 
+const handleBlur = (setResult: StateUpdater<Drink[]>) => setResult([]);
+const debouncedBlur = debounce(handleBlur, 300);
+
 export default function SearchInput() {
   const [value, setValue] = useState("");
   const [searchResult, setSearchResult] = useState<Drink[]>([]);
@@ -26,7 +28,9 @@ export default function SearchInput() {
     debouncedLoadSearch(target.value, setSearchResult);
   };
 
-  const showOptions = searchResult.length > 0;
+  const handleClick = (id: number) => {
+    window.location.href = `/drink/${id}`;
+  };
 
   return (
     <Fragment>
@@ -36,7 +40,8 @@ export default function SearchInput() {
         placeholder="Search drink"
         // @ts-ignore: debounced function
         onInput={handleChange}
-        onBlur={() => setSearchResult([])}
+        // @ts-ignore: debounced function
+        onBlur={() => debouncedBlur(setSearchResult)}
         value={value}
         autofocus
         list=""
@@ -45,29 +50,15 @@ export default function SearchInput() {
         class={tw`w-11/12 md:w-7/12 absolute block bg-white rounded-lg max-h-52 md:max-h-60 overflow-y-auto top-16 mt-2`}
       >
         {searchResult.map((drink) => (
-          <li class={tw`p-4 text-xl hover:cursor-pointer hover:bg-gray-100`}>
-            {drink.name}
+          <li
+            class={tw`p-4 text-xl hover:cursor-pointer hover:bg-gray-100`}
+          >
+            <a href={`/drink/${drink.id}`}>
+              {drink.name}
+            </a>
           </li>
         ))}
       </ul>
-      {
-        /* <datalist
-        id='searchResult'
-        class={tw`w-11/12 md:w-7/12 absolute block bg-white rounded-lg max-h-1`}
-        style={{
-          top: 70
-        }}
-      >
-        {val.map(v => (
-          <option
-            value='Boston'
-            class={tw`p-4 hover:bg-pink  bg-white hover:cursor-pointer opacity-90`}
-          >
-            {v}
-          </option>
-        ))}
-      </datalist> */
-      }
     </Fragment>
   );
 }

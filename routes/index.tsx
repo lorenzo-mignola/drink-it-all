@@ -16,7 +16,6 @@ export const handler: Handlers<Drink[]> = {
     const drink2 = await CocktailService.getRandomCocktail();
     const suggestedDrink = [drink1, drink2].filter(Boolean);
 
-    // return ctx.render([]);
     return ctx.render(suggestedDrink as Drink[]);
   },
 };
