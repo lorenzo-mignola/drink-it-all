@@ -22,5 +22,5 @@ deploy-job:      # This job runs in the deploy stage.
   script:
     - echo "Deploying application..."
     - deno install --allow-read --allow-write --allow-env --allow-net --allow-run --no-check -r -f https://deno.land/x/deploy/deployctl.ts
-    - deployctl deploy --token=$DENO_DEPLOY --project=drink-it-all ./main.ts
+    - deployctl deploy --token=$DENO_DEPLOY --project=drink-it-all .
     - echo "Application successfully deployed."
