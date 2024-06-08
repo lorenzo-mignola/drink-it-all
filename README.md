@@ -10,6 +10,10 @@ deno task start
 
 This will watch the project directory and restart as necessary.
 
+## View the project
+
+https://drink-it-all.deno.dev/
+
 ## API
 
 Random drink
